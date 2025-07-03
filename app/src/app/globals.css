@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-dracula-bg-dark: #202E59;      
+  --color-dracula-fg-dark: #CBD5F2;       
+  --color-dracula-comment-dark: #919DBF;  
+  --color-dracula-pink: #A3BAFF;         
+  --color-dracula-purple: #A3BAFF;        
+  --color-dracula-cyan: #4F5E8C;          
+  --color-dracula-green: #4F5E8C;         
+  --color-dracula-orange: #A3BAFF;       
+  --color-dracula-red: #A3BAFF;          
+
+  --color-dracula-bg-light: #FFFFFF;     
+  --color-dracula-fg-light: #121B33;     
+  --color-dracula-comment-light: #747D99; 
+}
+
+@layer base {
+
+  :root {
+    --background: theme('colors.dracula-bg-light');
+    --foreground: theme('colors.dracula-fg-light');
+    --comment: theme('colors.dracula-comment-light');
+    --purple: theme('colors.dracula-purple');
+    --pink: theme('colors.dracula-pink');
+    --red: theme('colors.dracula-red');
+  }
+
+
+  .dark {
+    --background: theme('colors.dracula-bg-dark');
+    --foreground: theme('colors.dracula-fg-dark');
+    --comment: theme('colors.dracula-comment-dark');
+    --cyan: theme('colors.dracula-cyan');
+    --green: theme('colors.dracula-green');
+    --orange: theme('colors.dracula-orange');
+  }
+
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}

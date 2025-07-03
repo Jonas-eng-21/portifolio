@@ -1,0 +1,56 @@
+{
+  "nav_home": "Home",
+  "nav_skills": "Skills",
+  "nav_experience": "Experience",
+  "nav_projects": "Projects",
+  "nav_contact": "Contact",
+
+  "hero_greeting": "Hello, I am",
+  "hero_name": "Jonas Soares Sousa",
+  "job_title": "FullStack Developer",
+  "hero_description": "Software developer with experience in developing web and mobile applications, focused on writing clean and efficient code with a focus on maintainability and performance.",
+
+  "skills_title": "Technical Expertise",
+  "skills_subtitle": "A complete toolset to build robust backend systems and advanced solutions.",
+  "skills_backend_title": "Back-end (Java & Spring Boot)",
+  "skills_backend_desc": "Java 17+ with Spring Boot, RESTful APIs, Spring Web, Spring Data JPA, Hibernate, Spring Security with JWT and BCrypt.",
+  "skills_frontend_title": "Front-end (JS/TS)",
+  "skills_frontend_desc": "JavaScript/TypeScript, React, Next.js for reactive and componentized UIs, styled with Tailwind CSS.",
+  "skills_architecture_title": "Architecture & Testing",
+  "skills_architecture_desc": "Domain-Driven Design (DDD), Hexagonal Architecture, SOLID, Unit Tests (JUnit, Mockito), and Integration Tests (RestAssured).",
+  "skills_database_title": "Databases",
+  "skills_database_desc": "Relational databases like PostgreSQL, including data modeling and inheritance strategies.",
+  "skills_devops_title": "DevOps & Tools",
+  "skills_devops_desc": "Environment management with Docker and Docker Compose, facilitating the creation of CI/CD pipelines.",
+  "skills_others_title": "Full-Stack Ecosystem",
+  "skills_others_desc": "Additional experience with Node.js, PHP with Laravel, React Native, and Vue.js for diverse solutions.",
+
+  "experience_title": "Work Experience",
+
+  "exp_1_title": "Fullstack Developer",
+  "exp_1_company": "Freelancer",
+  "exp_1_date": "January 2024 - December 2024",
+  "exp_1_desc": "• Delivered on-demand projects as a full-stack developer, using Java with Spring Boot for the backend and React.js for the frontend.\n• Worked directly with clients, which broadened my product vision and focus on practical, functional solutions.",
+  
+  "exp_2_title": "Frontend Developer",
+  "exp_2_company": "COMEIA Labs",
+  "exp_2_date": "December 2021 - December 2023",
+  "exp_2_desc": "• Developed web and mobile applications with React.js, React Native, Vue.js, and TypeScript.\n• Collaborated in agile teams, contributing to continuous and well-documented deliveries, using best practices with Git and REST API integration.",
+
+  "exp_3_title": "Internship Trainee",
+  "exp_3_company": "COMEIA Labs",
+  "exp_3_date": "February 2021 - December 2021",
+  "exp_3_desc": "• Participated in real projects focusing on software engineering and agile methodologies.\n• Contributed features to web projects, gaining practical experience in Java, Node.js, HTML, CSS, and JavaScript.",
+
+  "education_title": "Education",
+
+  "edu_1_title": "Bachelor's in Software Engineering",
+  "edu_1_institution": "University of Pernambuco",
+  "edu_1_date": "2019 - 2025",
+  "edu_1_desc": "• Participation in the GoTour project, winner of the Centelha program.",
+
+  "edu_2_title": "Technician in Computer Maintenance and Support",
+  "edu_2_institution": "ETE Pedro Muniz Falcão",
+  "edu_2_date": "2016 - 2018",
+  "edu_2_desc": "• Technical training integrated with high school."
+}

@@ -1,0 +1,56 @@
+{
+  "nav_home": "Início",
+  "nav_skills": "Habilidades",
+  "nav_experience": "Experiência",
+  "nav_projects": "Projetos",
+  "nav_contact": "Contato",
+
+  "hero_greeting": "Olá, eu sou",
+  "hero_name": "Jonas Soares Sousa",
+  "job_title": "Desenvolvedor FullStack",
+  "hero_description": "Desenvolvedor de software com experiência no desenvolvimento de aplicações web e mobile, focado em escrever código limpo e eficiente, com foco em manutenibilidade e desempenho.",
+  
+  "skills_title": "Expertise Técnica",
+  "skills_subtitle": "Um conjunto completo de ferramentas para construir sistemas backend robustos e soluções avançadas.",
+  "skills_backend_title": "Back-end (Java & Spring Boot)",
+  "skills_backend_desc": "Java 17+ com Spring Boot, APIs RESTful, Spring Web, Spring Data JPA, Hibernate, Spring Security com JWT e BCrypt.",
+  "skills_frontend_title": "Front-end (JS/TS)",
+  "skills_frontend_desc": "JavaScript/TypeScript, React, Next.js para interfaces reativas e componentizadas, estilizadas com Tailwind CSS.",
+  "skills_architecture_title": "Arquitetura & Testes",
+  "skills_architecture_desc": "Domain-Driven Design (DDD), Arquitetura Hexagonal, SOLID, Testes Unitários (JUnit, Mockito) e Testes de Integração (RestAssured).",
+  "skills_database_title": "Bancos de Dados",
+  "skills_database_desc": "Bancos de dados relacionais como PostgreSQL, incluindo modelagem de dados e estratégias de herança.",
+  "skills_devops_title": "DevOps & Ferramentas",
+  "skills_devops_desc": "Gerenciamento de ambientes com Docker e Docker Compose, facilitando a criação de pipelines de CI/CD.",
+  "skills_others_title": "Ecossistema Full-Stack",
+  "skills_others_desc": "Experiência adicional com Node.js, PHP com Laravel, React Native e Vue.js para diversas soluções.",
+
+  "experience_title": "Experiência Profissional",
+
+  "exp_1_title": "Desenvolvedor Fullstack",
+  "exp_1_company": "Freelancer",
+  "exp_1_date": "Janeiro 2024 - Dezembro 2024",
+  "exp_1_desc": "• Realizei projetos sob demanda como desenvolvedor fullstack, utilizando Java com Spring Boot no backend e React.js no frontend.\n• Atuei diretamente com clientes, o que ampliou minha visão de produto e foco em soluções práticas e funcionais.",
+
+  "exp_2_title": "Desenvolvedor Frontend",
+  "exp_2_company": "COMEIA Labs",
+  "exp_2_date": "Dezembro 2021 - Dezembro 2023",
+  "exp_2_desc": "• Atuei no desenvolvimento de aplicações web e mobile com React.js, React Native, Vue.js e TypeScript.\n• Colaborei em times ágeis, contribuindo para entregas contínuas e bem documentadas, utilizando boas práticas com Git e integração com APIs REST.",
+
+  "exp_3_title": "Internship Trainee",
+  "exp_3_company": "COMEIA Labs",
+  "exp_3_date": "Fevereiro 2021 - Dezembro 2021",
+  "exp_3_desc": "• Participei de projetos reais com foco em engenharia de software e metodologias ágeis.\n• Contribuí com funcionalidades em projetos web, ganhando experiência prática em Java, Node.js, HTML, CSS e JavaScript.",
+
+  "education_title": "Formação Acadêmica",
+
+  "edu_1_title": "Bacharelado em Engenharia de Software",
+  "edu_1_institution": "Universidade de Pernambuco",
+  "edu_1_date": "2019 - 2025",
+  "edu_1_desc": "• Participação no projeto GoTour, vencedor no programa Centelha.",
+  
+  "edu_2_title": "Técnico em Manutenção e Suporte em Informática",
+  "edu_2_institution": "ETE Pedro Muniz Falcão",
+  "edu_2_date": "2016 - 2018",
+  "edu_2_desc": "• Formação técnica integrada ao ensino médio."
+}
