@@ -46,16 +46,12 @@
   "exp_3_desc": "• Participated in real projects focusing on software engineering and agile methodologies.\n• Contributed features to web projects, gaining practical experience in Java, Node.js, HTML, CSS, and JavaScript.",
 
   "education_title": "Education",
-
+  "experience_subtitle": "My journey building robust backend systems and AI solutions.",
+ 
   "edu_1_title": "Bachelor's in Software Engineering",
   "edu_1_institution": "University of Pernambuco",
-  "edu_1_date": "2019 - 2025",
+  "edu_1_date": "February 2019 - June 2025",
   "edu_1_desc": "• Participation in the GoTour project, winner of the Centelha program.",
-
-  "edu_2_title": "Technician in Computer Maintenance and Support",
-  "edu_2_institution": "ETE Pedro Muniz Falcão",
-  "edu_2_date": "2016 - 2018",
-  "edu_2_desc": "• Technical training integrated with high school.",
 
   "projects_title": "Featured Projects",
   "projects_subtitle": "A selection of some of my most impactful work.",
