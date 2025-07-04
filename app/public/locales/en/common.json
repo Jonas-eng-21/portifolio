@@ -52,5 +52,30 @@
   "edu_2_title": "Technician in Computer Maintenance and Support",
   "edu_2_institution": "ETE Pedro Muniz Falcão",
   "edu_2_date": "2016 - 2018",
-  "edu_2_desc": "• Technical training integrated with high school."
+  "edu_2_desc": "• Technical training integrated with high school.",
+
+  "projects_title": "Featured Projects",
+  "projects_subtitle": "A selection of some of my most impactful work.",
+
+  "proj_1_title": "GoTour Project (Centelha Program Winner)",
+  "proj_1_desc": "A tourism application developed as part of an academic project that stood out and was awarded in the Centelha program.",
+  "proj_1_tech": "Java, Spring Boot, React, TypeScript, PostgreSQL",
+
+  "proj_2_title": "Your Next Great Project",
+  "proj_2_desc": "Describe one of your main projects here. Talk about the problem it solves, its features, and the impact it had.",
+  "proj_2_tech": "Node.js, Next.js, Docker, Tailwind CSS",
+
+  "proj_3_title": "Another Relevant Project",
+  "proj_3_desc": "Use this space to highlight another important application from your portfolio, detailing technical challenges and implemented solutions.",
+  "proj_3_tech": "React Native, TypeScript, Firebase",
+
+  "contact_title": "Get in Touch",
+  "contact_subtitle": "Interested in working together? Let's discuss your project.",
+  "contact_email_title": "Email",
+  "contact_github_title": "GitHub",
+  "contact_linkedin_title": "LinkedIn",
+  "contact_whatsapp_title": "WhatsApp",
+  "contact_whatsapp_cta": "Send me a message",
+
+  "footer_copyright": "© 2025 Jonas Sousa. All rights reserved."
 }

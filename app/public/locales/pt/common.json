@@ -52,5 +52,30 @@
   "edu_2_title": "Técnico em Manutenção e Suporte em Informática",
   "edu_2_institution": "ETE Pedro Muniz Falcão",
   "edu_2_date": "2016 - 2018",
-  "edu_2_desc": "• Formação técnica integrada ao ensino médio."
+  "edu_2_desc": "• Formação técnica integrada ao ensino médio.",
+
+  "projects_title": "Projetos Destacados",
+  "projects_subtitle": "Uma seleção de alguns dos meus trabalhos mais impactantes.",
+
+  "proj_1_title": "Projeto GoTour (Vencedor do Centelha)",
+  "proj_1_desc": "Aplicação de turismo desenvolvida como parte de um projeto acadêmico que se destacou e foi premiada no programa Centelha.",
+  "proj_1_tech": "Java, Spring Boot, React, TypeScript, PostgreSQL",
+
+  "proj_2_title": "Seu Próximo Grande Projeto",
+  "proj_2_desc": "Descreva aqui um dos seus principais projetos. Fale sobre o problema que ele resolve, as funcionalidades e o impacto que causou.",
+  "proj_2_tech": "Node.js, Next.js, Docker, Tailwind CSS",
+
+  "proj_3_title": "Outro Projeto Relevante",
+  "proj_3_desc": "Use este espaço para destacar outra aplicação importante do seu portfólio, detalhando os desafios técnicos e as soluções implementadas.",
+  "proj_3_tech": "React Native, TypeScript, Firebase",
+
+  "contact_title": "Entre em Contato",
+  "contact_subtitle": "Interessado em trabalhar juntos? Vamos discutir seu projeto.",
+  "contact_email_title": "Email",
+  "contact_github_title": "GitHub",
+  "contact_linkedin_title": "LinkedIn",
+  "contact_whatsapp_title": "WhatsApp",
+  "contact_whatsapp_cta": "Me mande uma mensagem",
+  
+  "footer_copyright": "© 2025 Jonas Sousa. Todos os direitos reservados."
 }
