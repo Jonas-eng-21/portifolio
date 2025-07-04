@@ -1,43 +1,32 @@
-// app/components/sections/ContactSection.tsx
-
 import { Mail, Github, Linkedin, MessageSquare } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-interface ContactSectionProps {
-  t: {
-    contact_title: string;
-    contact_subtitle: string;
-    contact_email_title: string;
-    contact_github_title: string;
-    contact_linkedin_title: string;
-    contact_whatsapp_title: string;
-    contact_whatsapp_cta: string;
-  };
-}
 
-export const ContactSection = ({ t }: ContactSectionProps) => {
+export const ContactSection = () => {
+  const t = useTranslations();
   const contacts = [
     {
       icon: <Mail size={24} />,
-      title: t.contact_email_title,
+      title: t('contact_email_title'),
       info: 'jonas.eng.software@gmail.com',
       href: 'mailto:jonas.eng.software@gmail.com',
     },
     {
       icon: <Github size={24} />,
-      title: t.contact_github_title,
+      title: t('contact_github_title'),
       info: '@Jonas-eng-21', 
       href: 'https://github.com/Jonas-eng-21',
     },
     {
       icon: <Linkedin size={24} />,
-      title: t.contact_linkedin_title,
+      title: t('contact_linkedin_title'),
       info: 'in/jonas-soares-824a8a361', 
       href: 'https://www.linkedin.com/in/jonas-soares-824a8a361/', 
     },
     {
       icon: <MessageSquare size={24} />,
-      title: t.contact_whatsapp_title,
-      info: t.contact_whatsapp_cta,
+      title: t('contact_whatsapp_title'),
+      info: t('contact_whatsapp_cta'),
       href: 'https://wa.me/5587991364331', 
     },
   ];
@@ -47,10 +36,10 @@ export const ContactSection = ({ t }: ContactSectionProps) => {
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            {t.contact_title}
+            {t('contact_title')}
           </h2>
           <p className="mt-4 text-lg text-[var(--foreground-muted)]">
-            {t.contact_subtitle}
+            {t('contact_subtitle')}
           </p>
         </div>
         <div className="mx-auto max-w-3xl rounded-lg border border-[var(--border)] bg-[var(--surface)] p-8">

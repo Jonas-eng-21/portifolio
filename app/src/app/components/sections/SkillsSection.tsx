@@ -1,68 +1,54 @@
-import { Code, Database, Layers, Monitor, Braces } from 'lucide-react';
+import { Code, Database, Layers, Monitor, Braces } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-interface SkillsSectionProps {
-  t: {
-    skills_title: string;
-    skills_subtitle: string;
-    skills_backend_title: string;
-    skills_backend_desc: string;
-    skills_frontend_title: string;
-    skills_frontend_desc: string;
-    skills_architecture_title: string;
-    skills_architecture_desc: string;
-    skills_database_title: string;
-    skills_database_desc: string;
-    skills_devops_title: string;
-    skills_devops_desc: string;
-    skills_others_title: string;
-    skills_others_desc: string;
-  };
-}
+export const SkillsSection = () => {
+  const t = useTranslations();
 
-export const SkillsSection = ({ t }: SkillsSectionProps) => {
-
-     const skillsData = [
+  const skillsData = [
     {
-      title: t.skills_backend_title,
-      description: t.skills_backend_desc,
+      title: t("skills_backend_title"),
+      description: t("skills_backend_desc"),
       icon: <Code />,
     },
     {
-      title: t.skills_architecture_title,
-      description: t.skills_architecture_desc,
+      title: t("skills_architecture_title"),
+      description: t("skills_architecture_desc"),
       icon: <Layers />,
     },
     {
-      title: t.skills_frontend_title,
-      description: t.skills_frontend_desc,
+      title: t("skills_frontend_title"),
+      description: t("skills_frontend_desc"),
       icon: <Monitor />,
     },
     {
-      title: t.skills_database_title,
-      description: t.skills_database_desc,
+      title: t("skills_database_title"),
+      description: t("skills_database_desc"),
       icon: <Database />,
     },
     {
-      title: t.skills_devops_title,
-      description: t.skills_devops_desc,
-      icon: '🐳', 
+      title: t("skills_others_title"),
+      description: t("skills_others_desc"),
+      icon: "🐳",
     },
     {
-      title: t.skills_others_title,
-      description: t.skills_others_desc,
+      title: t("skills_code_quality_title"),
+      description: t("skills_code_quality_desc"),
       icon: <Braces />,
     },
   ];
 
   return (
-  <section id="habilidades" className="w-full bg-[var(--surface)] py-24 sm:py-32">
+    <section
+      id="habilidades"
+      className="w-full bg-[var(--surface)] py-24 sm:py-32"
+    >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            {t.skills_title}
+            {t("skills_title")}
           </h2>
           <p className="mt-4 text-lg text-[var(--comment)]">
-            {t.skills_subtitle}
+            {t("skills_subtitle")}
           </p>
         </div>
 
@@ -74,7 +60,9 @@ export const SkillsSection = ({ t }: SkillsSectionProps) => {
             >
               <div className="text-[var(--pink)]">{skill.icon}</div>
               <h3 className="text-xl font-semibold">{skill.title}</h3>
-              <p className="text-sm text-[var(--comment)]">{skill.description}</p>
+              <p className="text-sm text-[var(--comment)]">
+                {skill.description}
+              </p>
             </div>
           ))}
         </div>

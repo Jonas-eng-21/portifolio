@@ -1,8 +1,7 @@
 "use client";
 
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { Languages, Moon, Sun } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const navLinks = [
@@ -16,9 +15,10 @@ const navLinks = [
 export const Header = () => {
   const [theme, setTheme] = useState("dark");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const router = useRouter();
   const pathname = usePathname();
+  const currentLocale = pathname.startsWith('/pt') ? 'en' : 'pt';
+
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -26,12 +26,10 @@ export const Header = () => {
   }, []);
 
   const changeLanguage = (newLocale: string) => {
-    const newPath = `/${newLocale}`;
-    router.push(newPath);
+    router.push(pathname, {locale: newLocale});
     setIsMenuOpen(false);
   };
 
-  const currentLocale = pathname.split("/")[1];
 
   const toggleTheme = () => {
     if (theme === "dark") {

@@ -25,6 +25,10 @@
   "skills_others_title": "Ecossistema Full-Stack",
   "skills_others_desc": "Experiência adicional com Node.js, PHP com Laravel, React Native e Vue.js para diversas soluções.",
 
+  "skills_code_quality_title": "Qualidade & Arquitetura de Código",
+  "skills_code_quality_desc": "Aplicação de princípios SOLID e arquiteturas como DDD e Hexagonal para garantir código limpo, testável e manutenível.",
+
+
   "experience_title": "Experiência Profissional",
 
   "exp_1_title": "Desenvolvedor Fullstack",

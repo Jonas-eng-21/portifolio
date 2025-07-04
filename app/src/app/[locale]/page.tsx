@@ -1,22 +1,17 @@
-import { getTranslations } from "../../../public/lib/i18n";
-import { ContactSection } from "../components/sections/ContactSection";
-import { ExperienceSection } from "../components/sections/ExperienceSection";
-import { HomeSection } from "../components/sections/HomeSection";
-import { ProjectsSection } from "../components/sections/ProjectsSection";
-import { SkillsSection } from "../components/sections/SkillsSection";
+import { HomeSection } from '../components/sections/HomeSection';
+import { SkillsSection } from '../components/sections/SkillsSection';
+import { ExperienceSection } from '../components/sections/ExperienceSection';
+import { ProjectsSection } from '../components/sections/ProjectsSection';
+import { ContactSection } from '../components/sections/ContactSection';
 
-
-
-export default async function Home({ params }: { params: { locale: string } }) {
-  const t = await getTranslations(params.locale);
-  
+export default function Home() {
   return (
     <main>
-      <HomeSection t={t} />
-      <SkillsSection t={t}/>
-      <ExperienceSection t={t}/>
-      <ProjectsSection t={t} />
-      <ContactSection t={t} />
+      <HomeSection />
+      <SkillsSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <ContactSection />
     </main>
   );
 }

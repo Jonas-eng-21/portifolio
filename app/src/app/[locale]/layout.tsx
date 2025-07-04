@@ -1,34 +1,34 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import { getTranslations } from '../../../public/lib/i18n';
+// src/app/[locale]/layout.tsx
+import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {notFound} from 'next/navigation';
+import {routing} from '@/i18n/routing'; 
+import {getMessages} from 'next-intl/server';
+import '../globals.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Jonas Soares - Desenvolvedor FullStack',
-  description: 'Portfólio de Jonas Soares',
-};
-
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
-  params,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-  params: { locale: string };
-}>) {
-
-  const t = await getTranslations(params.locale);
-
+  params: Promise<{locale: string}>;
+}) {
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  
+  const messages = await getMessages();
+ 
   return (
-    <html lang={params.locale} className="dark">
-      <body className={inter.className}>
-        <Header /> 
-        {children}
-        <Footer  t={t} />
+    <html lang={locale} className='dark'>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
