@@ -16,8 +16,8 @@ export const Footer = ({ t }: FooterProps) => {
           <p className="text-sm text-[var(--foreground-muted)]">{t.job_title}</p>
         </div>
         <div className="flex gap-4">
-          <a href="https://github.com/seu-usuario-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-[var(--foreground-muted)] hover:text-[var(--accent)]"><Github /></a>
-          <a href="https://linkedin.com/in/seu-usuario-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[var(--foreground-muted)] hover:text-[var(--accent)]"><Linkedin /></a>
+          <a href="https://github.com/Jonas-eng-21" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-[var(--foreground-muted)] hover:text-[var(--accent)]"><Github /></a>
+          <a href="https://www.linkedin.com/in/jonas-soares-824a8a361/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[var(--foreground-muted)] hover:text-[var(--accent)]"><Linkedin /></a>
           <a href="mailto:jonas.eng.software@gmail.com" aria-label="Email" className="text-[var(--foreground-muted)] hover:text-[var(--accent)]"><Mail /></a>
         </div>
         <p className="text-sm text-[var(--foreground-muted)]">{t.footer_copyright}</p>
