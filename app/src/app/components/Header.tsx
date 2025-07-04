@@ -1,53 +1,49 @@
 "use client";
 
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { Languages, Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
-
-const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#habilidades", label: "Habilidades" },
-  { href: "#experiencia", label: "Experiência" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#contato", label: "Contato" },
-];
+import { Languages } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { ThemeToggleButton } from "./buttons/ThemeToggleButton";
 
 export const Header = () => {
-  const [theme, setTheme] = useState("dark");
+  const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = pathname.startsWith('/pt') ? 'en' : 'pt';
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const currentLocale = pathname.startsWith("/en") ? "en" : "pt";
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setTheme(isDarkMode ? "dark" : "light");
-  }, []);
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   const changeLanguage = (newLocale: string) => {
-    router.push(pathname, {locale: newLocale});
+    router.push(pathname, { locale: newLocale });
     setIsMenuOpen(false);
   };
-
-
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      document.documentElement.classList.remove("dark");
-      setTheme("light");
-    } else {
-      document.documentElement.classList.add("dark");
-      setTheme("dark");
-    }
-  };
+  
+  const navLinks = [
+    { href: "#inicio", label: t('nav_home') },
+    { href: "#habilidades", label: t('nav_skills') },
+    { href: "#experiencia", label: t('nav_experience') },
+    { href: "#projetos", label: t('nav_projects') },
+    { href: "#contato", label: t('nav_contact') },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--background)]/80 backdrop-blur-lg">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <a
-          href="#inicio"
-          className="text-lg font-bold text-[var(--foreground)]"
-        >
+        <a href="#inicio" className="text-lg font-bold text-[var(--foreground)]">
           JONAS S. SOUSA
         </a>
 
@@ -55,10 +51,7 @@ export const Header = () => {
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
-                >
+                <a href={link.href} className="text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]">
                   {link.label}
                 </a>
               </li>
@@ -66,48 +59,20 @@ export const Header = () => {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          {/* Botão de Tema */}
-          <button
-            onClick={toggleTheme}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
-            aria-label="Alternar tema"
-          >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+        <div className="flex items-center gap-4">
+          <ThemeToggleButton />
 
-          {/* Dropdown de Idioma */}
-          <div className="relative">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]"
-              aria-label="Mudar idioma"
-            >
+          <div className="relative" ref={dropdownRef}>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)]" aria-label="Mudar idioma">
               <Languages size={20} />
             </button>
-
-            {/* Menu Dropdown */}
             {isMenuOpen && (
-              <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-[var(--surface)] shadow-lg ring-1 ring-black/5 focus:outline-none">
+              <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md border border-[var(--border)] bg-[var(--surface)]/80 backdrop-blur-lg shadow-lg ring-1 ring-black/5 focus:outline-none">
                 <div className="py-1">
-                  <button
-                    onClick={() => changeLanguage("pt")}
-                    className={`flex w-full items-center px-4 py-2 text-sm ${
-                      currentLocale === "pt"
-                        ? "bg-[var(--accent)] text-white"
-                        : "text-[var(--foreground)]"
-                    }`}
-                  >
+                  <button onClick={() => changeLanguage("pt")} className={`flex w-full items-center px-4 py-2 text-sm transition-colors ${ currentLocale === "pt" ? "bg-[var(--accent)] text-[var(--foreground)]" : "text-[var(--foreground-muted)] hover:bg-[var(--border)]" }`}>
                     Português (Brasil)
                   </button>
-                  <button
-                    onClick={() => changeLanguage("en")}
-                    className={`flex w-full items-center px-4 py-2 text-sm ${
-                      currentLocale === "en"
-                        ? "bg-[var(--accent)] text-white"
-                        : "text-[var(--foreground)]"
-                    }`}
-                  >
+                  <button onClick={() => changeLanguage("en")} className={`flex w-full items-center px-4 py-2 text-sm transition-colors ${ currentLocale === "en" ? "bg-[var(--accent)] text-[var(--foreground)]" : "text-[var(--foreground-muted)] hover:bg-[var(--border)]" }`}>
                     English
                   </button>
                 </div>
