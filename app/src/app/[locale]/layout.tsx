@@ -6,6 +6,7 @@ import {getMessages} from 'next-intl/server';
 import '../globals.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { GlobalSpotlightEffect } from '../components/ui/GlobalSpotlightEffect';
 
 export default async function LocaleLayout({
   children,
@@ -25,6 +26,7 @@ export default async function LocaleLayout({
     <html lang={locale} className='dark'>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <GlobalSpotlightEffect />
           <Header />
           {children}
           <Footer />

@@ -19,6 +19,11 @@
 
 @layer base {
 
+    html {
+    @apply scroll-smooth;
+    scroll-padding-top: 5rem;
+  }
+
   :root {
     --background: theme('colors.dracula-bg-light');
     --foreground: theme('colors.dracula-fg-light');
