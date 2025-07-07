@@ -15,13 +15,24 @@
   --color-dracula-bg-light: #FFFFFF;     
   --color-dracula-fg-light: #121B33;     
   --color-dracula-comment-light: #747D99; 
+  --color-dracula-light-surface: #F3F4F6; 
+  --color-dracula-light-border: #E5E7EB;  
 }
 
 @layer base {
 
-    html {
+  html {
     @apply scroll-smooth;
     scroll-padding-top: 5rem;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
   }
 
   :root {
@@ -31,8 +42,11 @@
     --purple: theme('colors.dracula-purple');
     --pink: theme('colors.dracula-pink');
     --red: theme('colors.dracula-red');
+    --surface: theme('color-dracula-light-surface'); 
+    --border: theme('color-dracula-light-border'); 
+    --accent: theme('colors.dracula-pink');
+    --foreground-muted: theme('colors.dracula-comment-dark');
   }
-
 
   .dark {
     --background: theme('colors.dracula-bg-dark');
@@ -41,6 +55,10 @@
     --cyan: theme('colors.dracula-cyan');
     --green: theme('colors.dracula-green');
     --orange: theme('colors.dracula-orange');
+    --surface: theme('colors.dracula-cyan');
+    --border: theme('colors.dracula-cyan');
+    --accent: theme('colors.dracula-pink');
+    --foreground-muted: theme('colors.dracula-comment-dark');
   }
 
 

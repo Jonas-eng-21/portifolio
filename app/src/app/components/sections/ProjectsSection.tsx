@@ -22,7 +22,7 @@ export const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projetos" className="w-full bg-[var(--surface)] py-24 sm:py-32">
+    <section id="projetos" className="w-full py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">

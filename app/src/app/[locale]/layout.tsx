@@ -23,7 +23,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
  
   return (
-    <html lang={locale} className='dark'>
+    <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <GlobalSpotlightEffect />

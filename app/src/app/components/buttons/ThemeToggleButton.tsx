@@ -3,29 +3,32 @@
 import { useEffect, useState } from "react";
 
 export const ThemeToggleButton = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+    const [theme, setTheme] = useState<"dark" | "light" | null>(null);
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
-  }, []);
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+        setTheme(initialTheme);
+    }, []);
 
-  useEffect(() => {
-    if (theme) {
-      document.documentElement.classList.toggle("dark", theme === "dark");
-      localStorage.setItem("theme", theme);
+    useEffect(() => {
+        if (theme) {
+            document.documentElement.classList.toggle("dark", theme === "dark");
+            localStorage.setItem("theme", theme);
+        }
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
+
+    if (!theme) {
+        return <div className="h-[34px] w-[60px]" />; 
     }
-  }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  const isChecked = theme === "dark";
+    const isChecked = theme === "dark";
 
   return (
     <label

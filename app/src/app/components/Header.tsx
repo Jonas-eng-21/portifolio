@@ -7,10 +7,6 @@ import { AnimatedNavigation } from "./ui/AnimatedNavigation";
 
 export const Header = () => {
 
-
-
-
-
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--background)]/80 backdrop-blur-lg">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">

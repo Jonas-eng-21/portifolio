@@ -1,16 +1,18 @@
+// src/app/components/LanguageDropDown.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Languages } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl"; 
 
 export const LanguageDropDown = () => {
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = pathname.startsWith("/en") ? "en" : "pt";
+  const currentLocale = useLocale(); 
 
   const changeLanguage = (newLocale: string) => {
     router.push(pathname, { locale: newLocale });

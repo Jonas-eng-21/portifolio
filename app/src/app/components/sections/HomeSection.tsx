@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Orb from '../ui/Orb';
+import ShinyText from '../ui/ShinyText';
 export const HomeSection = () => {
   const t = useTranslations();
   return (
@@ -13,8 +14,8 @@ export const HomeSection = () => {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             {t('hero_name')}
           </h1>
-          <h2 className="text-xl font-semibold text-[var(--foreground-muted)] sm:text-2xl">
-            {t('job_title')}
+          <h2 className="text-xl font-semibold sm:text-2xl">
+            <ShinyText text={t('job_title')} />
           </h2>
           <p className="max-w-md leading-relaxed">
             {t('hero_description')}

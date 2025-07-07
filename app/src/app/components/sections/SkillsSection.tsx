@@ -41,7 +41,7 @@ export const SkillsSection = () => {
   return (
     <section
       id="habilidades"
-      className="w-full bg-[var(--surface)] py-24 sm:py-32" 
+      className="w-full py-24 sm:py-32" 
     >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 text-center">
@@ -60,7 +60,7 @@ export const SkillsSection = () => {
               className="flex h-full flex-col gap-4"
             >
               <div className="text-[var(--accent)]">{skill.icon}</div>
-              <h3 className="text-xl font-semibold">{skill.title}</h3>
+              <h3 className="text-xl font-semibold text-[var(--foreground)]">{skill.title}</h3>
               <p className="text-sm text-[var(--foreground-muted)]">
                 {skill.description}
               </p>
