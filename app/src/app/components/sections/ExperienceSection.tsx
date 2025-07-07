@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import SpotlightCard from "../ui/SpotlightCard"; 
+import { SpotlightCard } from "../ui/SpotlightCard";
 
 export const ExperienceSection = () => {
   const t = useTranslations();
