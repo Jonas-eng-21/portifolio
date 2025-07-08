@@ -76,5 +76,6 @@
   "contact_whatsapp_title": "WhatsApp",
   "contact_whatsapp_cta": "Send me a message",
 
-  "footer_copyright": "© 2025 Jonas Sousa. All rights reserved."
+  "footer_copyright": "© 2025 Jonas Sousa. All rights reserved.",
+  "modal_view_project_button": "View Project"
 }

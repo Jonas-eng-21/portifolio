@@ -11,7 +11,7 @@ interface OrbProps {
 }
 
 export default function Orb({
-  hue = 240,
+  hue = 0, 
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
@@ -46,14 +46,12 @@ export default function Orb({
       float q = dot(c, vec3(0.211, -0.523, 0.312));
       return vec3(y, i, q);
     }
-    
     vec3 yiq2rgb(vec3 c) {
       float r = c.x + 0.956 * c.y + 0.621 * c.z;
       float g = c.x - 0.272 * c.y - 0.647 * c.z;
       float b = c.x - 1.106 * c.y + 1.703 * c.z;
       return vec3(r, g, b);
     }
-    
     vec3 adjustHue(vec3 color, float hueDeg) {
       float hueRad = hueDeg * 3.14159265 / 180.0;
       vec3 yiq = rgb2yiq(color);
@@ -65,7 +63,6 @@ export default function Orb({
       yiq.z = q;
       return yiq2rgb(yiq);
     }
-    
     vec3 hash33(vec3 p3) {
       p3 = fract(p3 * vec3(0.1031, 0.11369, 0.13787));
       p3 += dot(p3, p3.yxz + 19.19);
@@ -75,7 +72,6 @@ export default function Orb({
         p3.y + p3.z
       ) * p3.zyx);
     }
-    
     float snoise3(vec3 p) {
       const float K1 = 0.333333333;
       const float K2 = 0.166666667;
@@ -101,26 +97,25 @@ export default function Orb({
       );
       return dot(vec4(31.316), n);
     }
-    
     vec4 extractAlpha(vec3 colorIn) {
       float a = max(max(colorIn.r, colorIn.g), colorIn.b);
       return vec4(colorIn.rgb / (a + 1e-5), a);
     }
-    
-    const vec3 baseColor1 = vec3(0.611765, 0.262745, 0.996078);
-    const vec3 baseColor2 = vec3(0.298039, 0.760784, 0.913725);
-    const vec3 baseColor3 = vec3(0.062745, 0.078431, 0.600000);
+
+
+    const vec3 baseColor1 = vec3(0.639, 0.729, 1.0);  // #A3BAFF (Accent)
+    const vec3 baseColor2 = vec3(0.310, 0.369, 0.549);  // #4F5E8C (Surface)
+    const vec3 baseColor3 = vec3(0.125, 0.180, 0.349);  // #202E59 (Background)
+
     const float innerRadius = 0.6;
     const float noiseScale = 0.65;
     
     float light1(float intensity, float attenuation, float dist) {
       return intensity / (1.0 + dist * attenuation);
     }
-    
     float light2(float intensity, float attenuation, float dist) {
       return intensity / (1.0 + dist * dist * attenuation);
     }
-    
     vec4 draw(vec2 uv) {
       vec3 color1 = adjustHue(baseColor1, hue);
       vec3 color2 = adjustHue(baseColor2, hue);
@@ -153,7 +148,6 @@ export default function Orb({
       
       return extractAlpha(col);
     }
-    
     vec4 mainImage(vec2 fragCoord) {
       vec2 center = iResolution.xy * 0.5;
       float size = min(iResolution.x, iResolution.y);
@@ -169,7 +163,6 @@ export default function Orb({
       
       return draw(uv);
     }
-    
     void main() {
       vec2 fragCoord = vUv * iResolution.xy;
       vec4 col = mainImage(fragCoord);
@@ -231,6 +224,7 @@ export default function Orb({
     const rotationSpeed = 0.3;
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (!container) return;
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
