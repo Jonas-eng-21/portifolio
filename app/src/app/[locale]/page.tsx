@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { HomeSection } from "../components/sections/HomeSection";
 import { SkillsSection } from "../components/sections/SkillsSection";
 import { ExperienceSection } from "../components/sections/ExperienceSection";
@@ -14,20 +13,34 @@ import {
   SiPostgresql,
   SiSpringboot,
   SiReact,
-  SiNodedotjs, 
+  SiNodedotjs,
   SiTailwindcss,
-  SiGithub
-} from 'react-icons/si';
+  SiGithub,
+  SiVuetify,
+} from "react-icons/si";
 import { BiLogoJava } from "react-icons/bi";
-import { FaAws , FaHtml5, FaCss3, FaGitAlt} from "react-icons/fa";
+import { FaAws, FaHtml5, FaCss3, FaGitAlt } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
 
-
 export default function Home() {
-
   const techIcons = [
-    <BiLogoJava />, <SiSpringboot />, <SiTypescript />, <SiJavascript />, <SiReact />, <SiTailwindcss />, <FaGitAlt />,
-    <SiNodedotjs />, <SiDocker />, <SiMysql />, <SiPostgresql />, <FaAws />, <FaHtml5 />, <FaCss3 />, <SiGithub />, <VscVscode />
+    { key: "java", icon: <BiLogoJava /> },
+    { key: "springboot", icon: <SiSpringboot /> },
+    { key: "typescript", icon: <SiTypescript /> },
+    { key: "javascript", icon: <SiJavascript /> },
+    { key: "react", icon: <SiReact /> },
+    { key: "tailwind", icon: <SiTailwindcss /> },
+    { key: "git", icon: <FaGitAlt /> },
+    { key: "node", icon: <SiNodedotjs /> },
+    { key: "docker", icon: <SiDocker /> },
+    { key: "mysql", icon: <SiMysql /> },
+    { key: "postgresql", icon: <SiPostgresql /> },
+    { key: "aws", icon: <FaAws /> },
+    { key: "html", icon: <FaHtml5 /> },
+    { key: "css", icon: <FaCss3 /> },
+    { key: "github", icon: <SiGithub /> },
+    { key: "vscode", icon: <VscVscode /> },
+    { key: "vuetify", icon: <SiVuetify /> },
   ];
 
   return (
