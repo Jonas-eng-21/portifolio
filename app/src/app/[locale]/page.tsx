@@ -17,6 +17,7 @@ import {
   SiTailwindcss,
   SiGithub,
   SiVuetify,
+  SiNextdotjs,
 } from "react-icons/si";
 import { BiLogoJava } from "react-icons/bi";
 import { FaAws, FaHtml5, FaCss3, FaGitAlt } from "react-icons/fa";
@@ -41,6 +42,7 @@ export default function Home() {
     { key: "github", icon: <SiGithub /> },
     { key: "vscode", icon: <VscVscode /> },
     { key: "vuetify", icon: <SiVuetify /> },
+    { key: "nextjs", icon: <SiNextdotjs /> },
   ];
 
   return (

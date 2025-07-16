@@ -1,35 +1,29 @@
-// src/app/components/ProjectModalCard.tsx
 "use client";
 
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Button,
-} from "@chakra-ui/react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 interface Project {
   title: string;
   description: string;
   tech: string;
-  // Opcional: adicione um link para o seu projeto nos arquivos de tradução
   href?: string;
 }
 
 export const ProjectModalCard = ({ project }: { project: Project }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations();
+
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false);
+    }
+  };
 
   return (
     <>
       <div
-        onClick={onOpen}
+        onClick={() => setIsOpen(true)}
         className="flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--background)] shadow-lg transition-transform hover:-translate-y-1"
       >
         <div className="h-48 w-full bg-[var(--surface)]" />
@@ -40,10 +34,7 @@ export const ProjectModalCard = ({ project }: { project: Project }) => {
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.tech.split(', ').map((tech: string) => (
-              <span
-                key={tech}
-                className="rounded-full bg-[var(--surface)] px-3 py-1 text-xs font-medium text-[var(--accent)]"
-              >
+              <span key={tech} className="rounded-full bg-[var(--surface)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
                 {tech}
               </span>
             ))}
@@ -51,63 +42,64 @@ export const ProjectModalCard = ({ project }: { project: Project }) => {
         </div>
       </div>
 
-      {/* --- INÍCIO DAS MUDANÇAS --- */}
-      <Modal 
-        isOpen={isOpen} 
-        onClose={onClose} 
-        isCentered 
-        size="xl"
-        // 1. Adicionada a animação 'slideInBottom'
-        motionPreset='slideInBottom'
-      >
-        {/* 2. Removido o backdropFilter para um visual mais limpo */}
-        <ModalOverlay bg="blackAlpha.700" />
-        {/* 3. Fundo alterado para var(--background) para melhor contraste */}
-        <ModalContent bg="var(--background)" color="var(--foreground)" borderRadius="lg">
-          <ModalHeader borderBottomWidth="1px" borderColor="var(--border)">
-            {project.title}
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody py={6}>
-            <p className="mb-4 text-[var(--foreground-muted)]">
-              {project.description}
-            </p>
-            <h4 className="mb-2 font-semibold">Tecnologias Utilizadas:</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.tech.split(', ').map((tech: string) => (
-                <span
-                  key={tech}
-                  className="rounded-full bg-[var(--surface)] px-3 py-1 text-xs font-medium text-[var(--accent)]"
-                >
-                  {tech}
-                </span>
-              ))}
+
+      {isOpen && (
+        <div
+          onClick={handleClose}
+          className="fixed inset-0 z-50 grid place-content-center bg-black/60 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="w-full max-w-xl rounded-lg bg-[var(--surface)] p-6 shadow-lg">
+            <div className="flex items-start justify-between">
+              <h2 className="text-xl font-bold text-[var(--foreground)] sm:text-2xl">
+                {project.title}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="-me-4 -mt-4 rounded-full p-2 text-[var(--foreground-muted)] transition-colors hover:bg-[var(--border)]"
+                aria-label="Close"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-          </ModalBody>
-          <ModalFooter borderTopWidth="1px" borderColor="var(--border)">
-            {/* 4. Adicionado um botão secundário para o link do projeto */}
-            <Button 
-              as="a"
-              href={project.href}
-              target="_blank"
-              variant='ghost' 
-              mr={3} 
-              hidden={!project.href} // O botão só aparece se houver um link
-            >
-              {t('modal_view_project_button')}
-            </Button>
-            <Button 
-              onClick={onClose} 
-              bg="var(--accent)" 
-              color="var(--background)"
-              _hover={{ bg: "var(--accent)", opacity: 0.8 }}
-            >
-              Fechar
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-      {/* --- FIM DAS MUDANÇAS --- */}
+            <div className="mt-4">
+              <p className="text-pretty text-[var(--foreground-muted)]">
+                {project.description}
+              </p>
+              <h4 className="mt-6 mb-2 font-semibold text-[var(--foreground)]">Tecnologias Utilizadas:</h4>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.split(', ').map((tech: string) => (
+                  <span key={tech} className="rounded-full bg-[var(--background)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <footer className="mt-6 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="rounded-md bg-[var(--border)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:opacity-80"
+              >
+                Fechar
+              </button>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                hidden={!project.href}
+                className="rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-bold text-[#121B33] transition-colors hover:opacity-80" // Texto escuro para contraste
+              >
+                {t('modal_view_project_button')}
+              </a>
+            </footer>
+          </div>
+        </div>
+      )}
     </>
   );
 };
